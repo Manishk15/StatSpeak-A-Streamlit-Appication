@@ -1,0 +1,22 @@
+[
+    {
+        "question": "How many items were purchased by customers aged 30 and above?",
+        "sql": "SELECT SUM(quantity) FROM customer_shopping_data WHERE age >= 30"
+    },
+    {
+        "question": "What is the total amount spent by customers using Credit Cards?",
+        "sql": "SELECT SUM(quantity * price) AS total_spent FROM customer_shopping_data WHERE payment_method = 'Credit Card'"
+    },
+    {
+        "question": "Which shopping mall had the most purchases of Shoes?",
+        "sql": "SELECT shopping_mall, SUM(quantity) AS total_shoes FROM customer_shopping_data WHERE category = 'Shoes' GROUP BY shopping_mall ORDER BY total_shoes DESC LIMIT 1"
+    },
+    {
+        "question": "What is the average age of customers who purchased books?",
+        "sql": "SELECT AVG(age) AS avg_age FROM customer_shopping_data WHERE category = 'Books'"
+    },
+    {
+        "question": "How many male customers made purchases in Metrocity mall?",
+        "sql": "SELECT COUNT(DISTINCT customer_id) AS male_customers FROM customer_shopping_data WHERE gender = 'Male' AND shopping_mall = 'Metrocity'"
+    }
+]
